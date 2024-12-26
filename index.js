@@ -64,5 +64,5 @@ app.get("/home", (req, res) => {
 
 app.get("/:name", (req, res) => {
     console.log(req.params)
-    res.send("helloooo hiii...")
+    res.send("helloooo hii...")
 })
