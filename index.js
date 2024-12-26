@@ -59,10 +59,10 @@ app.listen(8080, () => {
 })
 
 app.get("/home", (req, res) => {
-     res.send("helloooo...")
+     res.send("helloooo.....")
 })
 
 app.get("/:name", (req, res) => {
     console.log(req.params)
-    res.send("helloooo...")
+    res.send("helloooo hiii...")
 })
