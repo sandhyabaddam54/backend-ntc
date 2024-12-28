@@ -14,6 +14,10 @@ app.get("/", async(req, res) => {
     res.status(200).json(items);
 });
 
+app.get("/getOrders", async(req, res) => {
+    const items = await db.collection("orders").find().toArray();
+    res.status(200).json(items);
+})
 app.post("/", async (req, res) => {
     const { name, price } = req.body;
     const data = {
@@ -35,6 +39,16 @@ app.post("/users", async (req, res) => {
     res.status(200).json(newUser);
 });
 
+app.post("/orders", async (req, res) => {
+    const { items, total } = req.body;
+    const data = {
+        items: items,
+        total: total
+    };
+    const newUser = await db.collection("orders").insertOne(data);
+    res.status(200).json(newUser);
+});
+
 app.post("/find", async (req, res) => {
       const{email, pass} = req.body
       console.log(email, pass)
@@ -51,7 +65,7 @@ app.post("/find", async (req, res) => {
         // res.status(400).json({message:"user not found", flag});
         res.json({message:flag});
     }
-      console.log(user);
+    //   console.log(user);
 })
 
 app.listen(8080, () => {
@@ -62,7 +76,7 @@ app.get("/home", (req, res) => {
      res.send("helloooo.....")
 })
 
-app.get("/:name", (req, res) => {
-    console.log(req.params)
-    res.send("helloooo hiiii...")
-})
+// app.get("/:name", (req, res) => {
+//     console.log(req.params)
+//     res.send("helloooo hiiii...")
+// })
