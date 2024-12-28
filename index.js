@@ -2,7 +2,9 @@ import express from 'express'
 import cors from 'cors'
 
 import {MongoClient, ObjectId} from "mongodb"
-const uri = "mongodb://127.0.0.1:27017"
+// const uri = "mongodb://127.0.0.1:27017"
+// const uri = "mongodb+srv://baddamsandya54:ItHM42F06JLoG56D@cluster0.d1n4c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/ecomm1"
+const uri = "mongodb+srv://baddamsandya54:ItHM42F06JLoG56D@cluster0.d1n4c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const client = new MongoClient(uri);
 const db = client.db("ecomm1")
 const app = express();       // express is used to create server and api
